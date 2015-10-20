@@ -1,0 +1,33 @@
+---
+Josh:
+- !ruby/object:Task
+  content: Finish this thing
+  id: 34
+  completed: false
+  created_at: &1 !ruby/object:DateTime 2015-10-20 14:37:22.454803000 +02:00
+  updated_at: 
+- !ruby/object:Task
+  content: Testing things out
+  id: 35
+  completed: false
+  created_at: *1
+  updated_at: 
+- !ruby/object:Task
+  content: Testing things out
+  id: 36
+  completed: false
+  created_at: *1
+  updated_at: 
+Bob:
+- !ruby/object:Task
+  content: Finish this thing
+  id: 24
+  completed: false
+  created_at: &2 !ruby/object:DateTime 2015-10-20 14:37:22.454803000 +02:00
+  updated_at: 
+- !ruby/object:Task
+  content: Testing things out
+  id: 25
+  completed: false
+  created_at: *2
+  updated_at: 
