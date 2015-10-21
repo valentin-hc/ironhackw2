@@ -1,6 +1,23 @@
 <h1> Hey this is the list </h1>
 <% @tasks.each do |task| %>
-<li><%= task.content %></li>
+<li>
+	<%= task.content %> - 
+	<% if task.completed? == true %> 
+		Completed
+	<% else %>
+		Not Completed
+	<% end %>
+	<form action="/complete" method="POST">
+	<input type="hidden" name="id" value="<%= task.id %>">
+	<button type="submit">Completed?</button>
+	</form>
+	<form action="/delete" method="POST">
+	<input type="hidden" name="id" value="<%= task.id %>">
+	<button type="submit">Delete</button>
+	</form>
+</li>
 <% end %>
 
 <p><a href="new_task">Add Task</a></p>
+
+

@@ -15,7 +15,7 @@ end
 
 current_session = Checker.new
 post "/login" do 
-	p params[:login]
+	#p params[:login]
 	if params[:login] != nil
 		 if current_session.login(params[:username], params[:password])
 		 	session[:loggedin] = true

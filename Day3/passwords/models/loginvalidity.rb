@@ -96,3 +96,7 @@ RSpec.describe "Password Checker" do
 		expect(checker.check_password(entry[:username], entry[:password]).size).to eq(0)
 	end
 end
+
+
+#you could use to be_truthy or be_falsey for testing. since only false and nil are falsey
+#use regular expressions. REGEX !!!
