@@ -5,6 +5,7 @@ require "YAML/store"
 
 module Storage
 	def save
+        @todo_store = YAML::Store.new("./public/tasks.yml")
 		@todo_store.transaction do 
 			@todo_store[@user] = @tasks
 		end

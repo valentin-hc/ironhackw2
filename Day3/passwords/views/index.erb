@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Calculator</title>
+</head>
+<body>
+	<h1>Just loggin Bro</h1>
+	<form action="/login" method="POST">
+		<label for="username">Username</label>
+		<input type="text" name="username" id="username" placeholder="Bobby">
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password" placeholder="superpassword">
+		<button type="submit" name="login">Login</button>
+		<button type="submit" name="register">Register</button>
+	</form>
+	<%= @errorslog.map {|error| "<li>#{error}</li>"}.join %>
+
+
+</body>
+</html>

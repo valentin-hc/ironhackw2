@@ -2,6 +2,7 @@ require "pry"
 require "sinatra"
 require "sinatra/reloader"
 
+require_relative 'models/save.rb'
 require_relative 'models/calculate.rb'
 
 get "/" do
@@ -12,7 +13,14 @@ end
 post "/calculate" do
 	operation = Calculate.new(params[:n1], params[:n2],params[:btn])
 	result = operation.calculate
-	"The result of #{params[:n1]} #{params[:btn]} #{params[:n2]} equals #{result}"
+	redirect to("/review/#{operation.n1}#{operation.change_button}#{operation.n2}/#{result}")
+end
+
+get "/review/:operation/:result" do
+	@operation = params[:operation]
+	@result = params[:result]
+	@output = "The result of #{@operation} is #{@result}"
+	erb(:review)
 end
 
 get "/add" do
