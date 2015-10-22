@@ -1,8 +1,8 @@
 RSpec.describe "Blog" do 
 	before(:each) do
 		@blog = Blog.new
-		@post = Post.new("Test", "super text")
-		@post2 = Post.new("Second post", "second cool text")
+		@post = Post.new("Test", "super text", "general", "bob")
+		@post2 = Post.new("Second post", "second cool text", "awesome")
 	end
 	it "creates an empty array to store posts" do
 		expect(@blog.container).to eq([])
@@ -28,7 +28,7 @@ RSpec.describe "Blog" do
 		expect(@blog.container[-1]).to eq(@post2)
 	end
 	it "adds a new post to the array of posts" do
-		@blog.create_new("bob", "bobtext")
+		@blog.create_new("bob", "bobtext","general")
 		expect(@blog.container[-1].text).to eq("bobtext")
 	end
 	it "finds a post by its id when given a number" do

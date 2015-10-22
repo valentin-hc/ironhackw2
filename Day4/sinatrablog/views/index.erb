@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amazing Blog Post</title>
+</head>
+<body>
+<% @posts.each do |post| %>
+	<div class="<%= post.status%>">
+		<h1><a href="/post_detail/<%=post.id %>" ><%= post.title %></a></h1>
+		<p>In the '<%= post.category %>' category</p>
+		<div>
+			<p><%= post.text %></p>
+			<p>Posted on <%= post.date.strftime("%b %e, %l:%M %p") %> by <%= post.author %></p>
+
+			<form action="/sponsore" method="POST" id="sponsore">
+				<input type="hidden" name="id" value="<%=post.id%>">
+				<button type="submit">Sponsored Post?</button>
+			</form>
+		</div>
+	</div>
+<% end %>
+	<br>
+	<br>
+	<form action="/new_post" method="POST" id="newpost">
+		<label for="title">Post Title</label>
+		<input type="text" name="title" id="title" placeholder="My super post">
+		<br>
+		Content
+		<textarea name="text"></textarea>
+		<br>
+		Category
+		<select name="category">
+	  		<option value="general">General</option>
+			<option value="awesome">Awesome</option>
+			<option value="stupid">Stupid</option>
+			<option value="sexy">Sexy</option>
+		</select>
+		<br>
+		Author
+		<input type="text" name="author" id="author" placeholder="author name">
+		<button type="submit">Submit</button>
+	</form>
+
+</body>
+</html>
+

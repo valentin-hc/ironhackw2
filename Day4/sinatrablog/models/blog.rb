@@ -20,8 +20,8 @@ class Blog
 		sorted
 		@container = sorted
 	end
-	def create_new(title, text)
-		add_post(Post.new(title, text))
+	def create_new(title, text, category)
+		add_post(Post.new(title, text, category))
 	end
 	def find_post_by_id(number)
 		@container.find do |post|
