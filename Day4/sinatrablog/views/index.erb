@@ -7,11 +7,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
 
 	<title>Amazing Blog Post</title>
 </head>
 <body>
 	<div class="container">
+	<form action="/order_by" method="POST" id="order">
+		 <div class="form-group">
+			<label for="order"></label>
+			<select name="order" class="form-control">
+				<option value="new">Latest First</option>
+		  		<option value="old">Chronological</option>
+			</select>
+		  </div>
+		<button type="submit" class="btn btn-default">Choose View</button>
+	</form>
 	<% @posts.each do |post| %>
 		<div class="<%= post.status%>">
 			<h1><a href="/post_detail/<%=post.id %>" ><%= post.title %></a></h1>

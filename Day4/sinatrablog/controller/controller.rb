@@ -6,7 +6,7 @@ blog.add_post(Post.new("Amazing post 2", "Amazing text for post2", "awesome"))
 get "/" do 
 	#binding.pry
 	@blog = blog
-	@blog.sort_posts_new_first
+	#@blog.sort_posts_new_first
 	@posts = @blog.container
 	erb(:index)
 end
@@ -32,5 +32,14 @@ post "/sponsore" do
 		post.sponsore!
 	end
 	#binding.pry
+	redirect "/"
+end
+
+post "/order_by" do 
+	if params[:order] == "old"
+		blog.sort_posts_old_first
+	else
+		blog.sort_posts_new_first
+	end
 	redirect "/"
 end
