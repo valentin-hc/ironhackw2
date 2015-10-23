@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <title>Movies quizz !</title>
+</head>
+<body>
+
+	<div class="container">
+    <h1>Which of these movies came out in <%= @year %> ? </h1>
+        <div class="row">
+        <% @movie_list.each do |movie| %>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 thumb">
+                <p><%= movie.year %>
+                <form action="/answer" method="POST" id="<%= movie.year %>">
+                    <input type="hidden" class="form-control" name="answer" value="<%= @year %>" placeholder="Jaws">
+                    <input type="hidden" class="form-control" name="user_answer" value="<%= movie.year %>" placeholder="Jaws">
+                    <button type="submit" class="btn btn-default">
+                        <img class="img-responsive" src="<%= movie.poster %>">
+                    </button>
+                </form>
+            </div>
+    	<%end%>
+    	</div>
+    </div>
+
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+</body>
+</html>
+

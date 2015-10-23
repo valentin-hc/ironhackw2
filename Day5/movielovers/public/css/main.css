@@ -1,0 +1,8 @@
+.sponsored {
+	background-color: lightblue;
+}
+
+.img-responsive {
+	max-width: 200px;
+	max-height: auto;
+}
