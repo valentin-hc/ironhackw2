@@ -7,7 +7,10 @@ RSpec.describe "Search" do
 		expect(@model.result.length).to eq(9)
 	end
 	it "takes asks a question and returns if the answer was true or false" do 
-		expect(@model.year_question("1987", "1987")).to eq(true)
+		expect(@model.question("1987", "1987")).to eq(true)
 	end	
+	it "takes a number and returns a random number between 0 and the chosen number" do
+		expect(@model.random(3)).to be_between(0, 9).inclusive
+	end
 end
 		

@@ -14,8 +14,13 @@ class Showmovies
 		end
 		#binding.pry
 	end
-	def year_question(answer, user_answer)
+	def question(answer, user_answer)
 		user_answer == answer
+	end
+
+	def random(number)
+		prng = Random.new
+		prng.rand(number)
 	end
 end
 
